@@ -1,0 +1,11 @@
+type Query {
+  hello: String
+  getUser(id: ID!): User
+  currentUser: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
