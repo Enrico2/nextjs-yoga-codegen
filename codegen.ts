@@ -5,7 +5,14 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: 'src/app/api/graphql/schema.graphql',
   generates: {
-    'src/app/api/graphql': defineConfig(),
+    'src/app/api/graphql': defineConfig({
+      typesPluginsConfig: {
+        contextType: './models#Context',
+      },
+    }),
+  },
+  hooks: {
+    afterAllFileWrite: ['prettier --write'],
   },
 }
 

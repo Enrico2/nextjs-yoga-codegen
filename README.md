@@ -228,3 +228,14 @@ yarn prettier --write .
 run `yarn build` again and it works.
 
 run `yarn dev` and and open http://localhost:3000/api/graphql
+
+### Adding a Context object
+
+If you look at the commit history, the first commit covers everything up to this point. See the following commit for adding the context object.
+
+1. create `src/app/api/graphql/models.ts`
+2. update `codegen.ts` to reference the new context object
+3. run `yarn codegen` again
+4. in your resolvers you can replace `_ctx` with `{ db }`
+5. in `route.ts` you need to pass the context object to the yoga server
+6. See the `currentUser` resolver for an example
